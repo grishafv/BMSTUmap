@@ -24,7 +24,34 @@ Vector3 CurrentPosition;
     // Update is called once per frame
     void Update()
     {
-
+    float horInput = Input.GetAxis("Horizontal");
+     float verInput = Input.GetAxis("Vertical");
+     Vector3 movement;
+     if(Input.GetAxis("Horizontal") > 0)
+     {
+     movement = new Vector3(0.5f, 0f, 0f);
+     Vector3 moveDestination = transform.position + movement;
+     agent.destination = moveDestination;
+     }
+    if(Input.GetAxis("Horizontal") < 0)
+     {
+     movement = new Vector3(-0.5f, 0f, 0f);
+     Vector3 moveDestination = transform.position + movement;
+     agent.destination = moveDestination;
+     }
+     
+     if(Input.GetAxis("Vertical") > 0)
+     {
+     movement = new Vector3(0f, 0f, 0.5f);
+     Vector3 moveDestination = transform.position + movement;
+     agent.destination = moveDestination;
+     }
+    if(Input.GetAxis("Vertical") < 0)
+     {
+     movement = new Vector3(0f, 0f, -0.5f);
+     Vector3 moveDestination = transform.position + movement;
+     agent.destination = moveDestination;
+     }  
     }
 
     public void write() 
