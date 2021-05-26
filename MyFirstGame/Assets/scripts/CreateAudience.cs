@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 using System.IO;
 using UnityEngine.AI;
 
@@ -17,16 +14,12 @@ Vector3 CurrentPosition;
     void Start()
     {
         agent.GetComponent<NavMeshAgent>();
-
-        
-
     }
-    Vector3 rotate = new Vector3(0f, 1f, 0f);
+   
+
     // Update is called once per frame
     void Update()
     {
-    float horInput = Input.GetAxis("Horizontal");
-     float verInput = Input.GetAxis("Vertical");
      Vector3 movement;
      
      if (Input.GetAxis("Horizontal") > 0)
@@ -54,24 +47,15 @@ Vector3 CurrentPosition;
 
     public void write() 
     {
-        string filePath = "E://1.txt";
-           //    new audience{number = "341г", coord = new Vector3 {x = 42.9382F, y = 33.88272F, z = 88.256F}},
-               // текст для записи в файл
+        string filePath = "E://new_audiences.txt";
+        FileStream fileStream = File.Open(filePath, FileMode.Append);  // открываем файл (не стираем содержимое файла)
+        StreamWriter output = new StreamWriter(fileStream);   // получаем поток
+
         CurrentPosition = agent.transform.position;
         string text = $"new audience{{number = \"{audienceNumber}\", coord = new Vector3 {{x = {CurrentPosition.x}F, y = {CurrentPosition.y}F, z = {CurrentPosition.z}}}}},\n";
-//        string text = "hello";
-
-               // открываем файл (стираем содержимое файла)
-               FileStream fileStream = File.Open(filePath, FileMode.Append);
-
-               // получаем поток
-               StreamWriter output = new StreamWriter(fileStream);
-
-               // записываем текст в поток
-               output.Write(text);
-
-               // закрываем поток
-               output.Close();
+        
+        output.Write(text);       // записываем текст в поток
+        output.Close();           // закрываем поток
     
     }
     public void SetAudienceNumber(string nubmer)

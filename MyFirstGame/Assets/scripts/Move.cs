@@ -12,15 +12,11 @@ using UnityEngine.AI;
 public class Move : MonoBehaviour
 {
     public NavMeshAgent agent;
-
     public string starting_kabinet;
     public string destination_kabinet;
     public Vector3 Vstart;
     public Vector3 Vfinish;
 
-    // public Transform[] movePoint;
-    // public Vector3 moveToPoint;
-    // public Vector3 startingPoint;
     LineRenderer lineRenderer;
 
     audience[] audiences =
@@ -206,12 +202,9 @@ public class Move : MonoBehaviour
     new audience{number = "391", coord = new Vector3 {x = 29.04F, y = 33.63F, z = -101.25F}},
     new audience{number = "327", coord = new Vector3 {x = 207.804F, y = 33.63F, z = 111.2F}},
 
-    new audience{number = "технопарк", coord = new Vector3 {x = 45.37F, y = 33.63F, z = -87.57F}},
+    new audience{number = "технопарк", coord = new Vector3 {x = 45.37F, y = 33.63F, z = -87.57F}},  // отсюда уже правда
     new audience{number = "394 правое крыло коорд не введены", coord = new Vector3 {x = 46.73F, y = 33.63F, z = -87.57F}},
 
-
-    new audience{number = "1", coord = new Vector3 {x = 2.0F, y = 2.0F, z = 2.0F}},
-    new audience{number = "3", coord = new Vector3 {x = 3.0F, y = 3.0F, z = 3.0F}},
 
 };
 
@@ -234,8 +227,6 @@ public class Move : MonoBehaviour
         {
             if (starting_kabinet == audiences[i].number)
             {
-                //                transform.position = new Vector3(6.87F, 4F, -98.55F);
-                //                agent.transform.SetPositionAndRotation(audiences[i].coord, Quaternion.Euler(new Vector3(0,0,0)));
                 agent.Warp(audiences[i].coord);
                 Vstart = audiences[i].coord;
             }
@@ -267,7 +258,6 @@ public class Move : MonoBehaviour
         {
             if (destination_kabinet == audiences[i].number)
             {
-                // moveToPoint = audiences[i].coord;
                 agent.SetDestination(audiences[i].coord);
                 Vfinish = audiences[i].coord;
             }
