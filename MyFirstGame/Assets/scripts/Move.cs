@@ -201,6 +201,20 @@ public class Move : MonoBehaviour
     new audience{number = "391а", coord = new Vector3 {x = 25.41F, y = 33.63F, z = -101.25F}},
     new audience{number = "391", coord = new Vector3 {x = 29.04F, y = 33.63F, z = -101.25F}},
     new audience{number = "327", coord = new Vector3 {x = 207.804F, y = 33.63F, z = 111.2F}},
+    new audience{number = "красная площадь", coord = new Vector3 {x = 60.17098F, y = 22.08333F, z = 85.9823F}},
+    new audience{number = "251а", coord = new Vector3 {x = 58.93375F, y = 22.08333F, z = 100.1192F}},
+    new audience{number = "фудкорт", coord = new Vector3 {x = 83.33484F, y = 22.08333F, z = 91.09123F}},
+    new audience{number = "255", coord = new Vector3 {x = 99.28219F, y = 22.08333F, z = 95.28812F}},
+    new audience{number = "кафе пиццерия", coord = new Vector3 {x = 99.31924F, y = 22.08333F, z = 95.78936F}},
+    new audience{number = "кафе чайная пара", coord = new Vector3 {x = 151.806F, y = 22.08333F, z = 95.38341F}},
+    new audience{number = "260", coord = new Vector3 {x = 151.806F, y = 22.08333F, z = 95.38341F}},
+    new audience{number = "вход у ноги", coord = new Vector3 {x = 31.16884F, y = 11.11245F, z = 94.04344F}},
+    new audience{number = "у ноги", coord = new Vector3 {x = 6.307674F, y = 11.08333F, z = 122.5756F}},
+    new audience{number = "нога", coord = new Vector3 {x = 6.307674F, y = 11.08333F, z = 122.5756F}},
+    new audience{number = "у фонтана", coord = new Vector3 {x = -2.060562F, y = 11.1902F, z = 181.2598F}},
+    new audience{number = "фонтан", coord = new Vector3 {x = -2.060562F, y = 11.1902F, z = 181.2598F}},
+    new audience{number = "1 проходная", coord = new Vector3 {x = 139.402F, y = 12.87013F, z = 186.6078F}},
+    new audience{number = "беседка", coord = new Vector3 {x = 167.3907F, y = 13.08333F, z = 139.4467F}},
 
     new audience{number = "технопарк", coord = new Vector3 {x = 45.37F, y = 33.63F, z = -87.57F}},  // отсюда уже правда
     new audience{number = "394 правое крыло коорд не введены", coord = new Vector3 {x = 46.73F, y = 33.63F, z = -87.57F}},
@@ -253,20 +267,20 @@ public class Move : MonoBehaviour
 
     public void MoveToAudience()
     {
-        Spawn();
-        for (int i = 0; i < audiences.Length; i++)
-        {
-            if (destination_kabinet == audiences[i].number)
-            {
-                agent.SetDestination(audiences[i].coord);
-                Vfinish = audiences[i].coord;
-            }
-            if (starting_kabinet == audiences[i].number)
-            {
-                agent.Warp(audiences[i].coord);
-                Vstart = audiences[i].coord;
-            }
-        }
+    Spawn();
+ //       for (int i = 0; i < audiences.Length; i++)
+ //       {
+ //           if (starting_kabinet == audiences[i].number)
+ //           {
+ //               agent.Warp(audiences[i].coord);
+ //               Vstart = audiences[i].coord;
+ //           }
+ //           if (destination_kabinet == audiences[i].number)
+ //           {
+ //               Vfinish = audiences[i].coord;
+    agent.SetDestination(Vfinish);
+ //           }
+ //       }   это все вроде не нужно, мы это в спавне делаем
     }
 
 

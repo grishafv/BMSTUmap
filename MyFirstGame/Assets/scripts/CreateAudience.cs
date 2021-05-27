@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.IO;
 using UnityEngine.AI;
-
 public class CreateAudience : MonoBehaviour
 {
+    
 public NavMeshAgent agent;
 string audienceNumber;
 Vector3 CurrentPosition;
@@ -52,7 +52,8 @@ Vector3 CurrentPosition;
         StreamWriter output = new StreamWriter(fileStream);   // получаем поток
 
         CurrentPosition = agent.transform.position;
-        string text = $"new audience{{number = \"{audienceNumber}\", coord = new Vector3 {{x = {CurrentPosition.x}F, y = {CurrentPosition.y}F, z = {CurrentPosition.z}}}}},\n";
+    
+        string text = $"new audience{{number = \"{audienceNumber.ToString()}\", coord = new Vector3 {{x = {CurrentPosition.x.ToString(System.Globalization.CultureInfo.InvariantCulture)}F, y = {CurrentPosition.y.ToString(System.Globalization.CultureInfo.InvariantCulture)}F, z = {CurrentPosition.z.ToString(System.Globalization.CultureInfo.InvariantCulture)}F}}}},\n";
         
         output.Write(text);       // записываем текст в поток
         output.Close();           // закрываем поток
