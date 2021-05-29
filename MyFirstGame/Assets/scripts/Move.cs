@@ -12,10 +12,12 @@ using UnityEngine.AI;
 public class Move : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public string starting_kabinet;
-    public string destination_kabinet;
-    public Vector3 Vstart;
-    public Vector3 Vfinish;
+    private string starting_kabinet;
+    private string destination_kabinet;
+    public UnityEngine.UI.Extensions.AutoCompleteComboBox StartDropdown;
+    public UnityEngine.UI.Extensions.AutoCompleteComboBox FinishDropdown;
+    private Vector3 Vstart;
+    private Vector3 Vfinish;
 
     LineRenderer lineRenderer;
 
@@ -31,7 +33,7 @@ public class Move : MonoBehaviour
     new audience{number = "299ав", coord = new Vector3 {x = 30.73F, y = 21.49F, z = -100.03F}},
     new audience{number = "294в", coord = new Vector3 {x = 30.73F, y = 21.49F, z = -93.68F}},
     new audience{number = "294б", coord = new Vector3 {x = 28.46F, y = 21.49F, z = -93.68F}},
-    new audience{number = "299б", coord = new Vector3 {x = 27.91F, y = 21.49F, z = -100.34F}},
+    //new audience{number = "299б", coord = new Vector3 {x = 27.91F, y = 21.49F, z = -100.34F}},
     new audience{number = "297", coord = new Vector3 {x = 24.76F, y = 21.49F, z = -100.34F}}, // проблема
     new audience{number = "297а", coord = new Vector3 {x = -9.8F, y = 21.49F, z = -100.34F}},
     new audience{number = "294г", coord = new Vector3 {x = -14.7F, y = 21.49F, z = -95F}},
@@ -78,7 +80,7 @@ public class Move : MonoBehaviour
     new audience{number = "293", coord = new Vector3 {x = 172.29F, y = 21.63F, z = -160.25F}},
     new audience{number = "278", coord = new Vector3 {x = 172.29F, y = 21.63F, z = -156.141F}},
     new audience{number = "291", coord = new Vector3 {x = 179.01F, y = 21.63F, z = -160.25F}},
-    new audience{number = "296а", coord = new Vector3 {x = 179.01F, y = 21.63F, z = -156.141F}},
+    //new audience{number = "296а", coord = new Vector3 {x = 179.01F, y = 21.63F, z = -156.141F}},
     new audience{number = "289", coord = new Vector3 {x = 185.84F, y = 21.63F, z = -160.25F}},
     new audience{number = "276", coord = new Vector3 {x = 188.99F, y = 21.63F, z = -156.14F}},
     new audience{number = "274а", coord = new Vector3 {x = 196.58F, y = 21.63F, z = -156.14F}},
@@ -90,7 +92,7 @@ public class Move : MonoBehaviour
     new audience{number = "279", coord = new Vector3 {x = 217.96F, y = 21.63F, z = -148.51F}},
     new audience{number = "277", coord = new Vector3 {x = 217.96F, y = 21.63F, z = -139.58F}},
     new audience{number = "275", coord = new Vector3 {x = 216.62F, y = 21.63F, z = -130.08F}},
-    new audience{number = "кафедра ИУ-4", coord = new Vector3 {x = 216.62F, y = 21.63F, z = -130.08F}},
+    new audience{number = "кафедра ИУ-4", coord = new Vector3 {x = 216.62F, y = 21.63F, z = -130.08F}},  //проблемная иу4->матвед
                                                                                             //если что не удаляй эти пробелы, я по ним ориентируюсь когда и что я сделал
     new audience{number = "339аю", coord = new Vector3 {x = -31.04F, y = 33.63F, z = -107.6F}},
     new audience{number = "339ю", coord = new Vector3 {x = -57.77F, y = 33.63F, z = -106.31F}},
@@ -128,20 +130,20 @@ public class Move : MonoBehaviour
     new audience{number = "304ю", coord = new Vector3 {x = -205.35F, y = 33.63F, z = -83.45F}},
     new audience{number = "302ю", coord = new Vector3 {x = -205.35F, y = 33.63F, z = -65.43F}},
     new audience{number = "300ю", coord = new Vector3 {x = -204.12F, y = 33.63F, z = -52.15F}},
-    new audience{number = "399", coord = new Vector3 {x = -26.72F, y = 33.63F, z = -101.19F}},
-    new audience{number = "398", coord = new Vector3 {x = -13.52F, y = 33.63F, z = -94.11F}},
-    new audience{number = "398а", coord = new Vector3 {x = -11.61F, y = 33.63F, z = -94.11F}},
-    new audience{number = "398б", coord = new Vector3 {x = -10.61F, y = 33.63F, z = -94.11F}},
-    new audience{number = "398", coord = new Vector3 {x = -8.61F, y = 33.63F, z = -94.11F}},
-    new audience{number = "396а", coord = new Vector3 {x = 19.36F, y = 33.63F, z = -94.11F}},
+    //new audience{number = "399", coord = new Vector3 {x = -26.72F, y = 33.63F, z = -101.19F}},
+    //new audience{number = "398", coord = new Vector3 {x = -13.52F, y = 33.63F, z = -94.11F}},
+    //new audience{number = "398а", coord = new Vector3 {x = -11.61F, y = 33.63F, z = -94.11F}},
+    //new audience{number = "398б", coord = new Vector3 {x = -10.61F, y = 33.63F, z = -94.11F}},
+    //new audience{number = "398", coord = new Vector3 {x = -8.61F, y = 33.63F, z = -94.11F}},
+    //new audience{number = "396а", coord = new Vector3 {x = 19.36F, y = 33.63F, z = -94.11F}},
     new audience{number = "396б", coord = new Vector3 {x = 22.77F, y = 33.63F, z = -94.11F}},
     new audience{number = "394а", coord = new Vector3 {x = 25.41F, y = 33.63F, z = -94.11F}},
-    new audience{number = "397а", coord = new Vector3 {x = -17.4F, y = 33.63F, z = -101.25F}},
+    //new audience{number = "397а", coord = new Vector3 {x = -17.4F, y = 33.63F, z = -101.25F}},
     new audience{number = "397", coord = new Vector3 {x = -10.45F, y = 33.63F, z = -101.25F}},
-    new audience{number = "393", coord = new Vector3 {x = 19.36F, y = 33.63F, z = -101.25F}},
-    new audience{number = "391б", coord = new Vector3 {x = 22.77F, y = 33.63F, z = -101.25F}},
-    new audience{number = "391а", coord = new Vector3 {x = 25.41F, y = 33.63F, z = -101.25F}},
-    new audience{number = "391", coord = new Vector3 {x = 29.04F, y = 33.63F, z = -101.25F}},
+    //new audience{number = "393", coord = new Vector3 {x = 19.36F, y = 33.63F, z = -101.25F}},
+    //new audience{number = "391б", coord = new Vector3 {x = 22.77F, y = 33.63F, z = -101.25F}},
+    //new audience{number = "391а", coord = new Vector3 {x = 25.41F, y = 33.63F, z = -101.25F}},
+    //new audience{number = "391", coord = new Vector3 {x = 29.04F, y = 33.63F, z = -101.25F}},
     new audience{number = "327", coord = new Vector3 {x = 207.804F, y = 33.63F, z = 111.2F}},
 
 
@@ -298,6 +300,8 @@ public class Move : MonoBehaviour
 
     void Start()
     {
+        FillTheDropdown(StartDropdown);
+        FillTheDropdown(FinishDropdown);
         lineRenderer = GetComponent<LineRenderer>();
         agent.GetComponent<NavMeshAgent>();
     }
@@ -376,5 +380,13 @@ public class Move : MonoBehaviour
     public void MoveToStart()
     {
         agent.SetDestination(Vstart);
+    }
+
+    void FillTheDropdown(UnityEngine.UI.Extensions.AutoCompleteComboBox dropdown)
+    {
+        for (int i = 0; i < audiences.Length; i++)
+        {
+        dropdown.AddItem(audiences[i].number);
+        }
     }
 }
