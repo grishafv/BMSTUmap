@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1413,7 +1413,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 85
+  field of view: 98.1
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1439,7 +1439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291475100}
   m_LocalRotation: {x: 0.078459114, y: 0, z: 0, w: 0.99691737}
-  m_LocalPosition: {x: 0, y: 2.29, z: -3.03}
+  m_LocalPosition: {x: 0, y: 1.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 594038588}
@@ -1893,7 +1893,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.33333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: db3ec641f121c464792b9274709441c6, type: 2}
 --- !u!4 &419720363
@@ -2780,14 +2780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa02ec05d719cc418efb121059bfe51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 594038584}
   StartDropdown: {fileID: 524947898}
   FinishDropdown: {fileID: 743158687}
-  agent: {fileID: 594038584}
-  starting_kabinet: "\u0447\u0438\u0442\u0430\u043B\u044C\u043D\u044B\u0439 \u0437\u0430\u043B
-    3 \u043A\u0443\u0440\u0441\u0430"
-  destination_kabinet: "\u0442\u0435\u0445\u043D\u043E\u043F\u0430\u0440\u043A"
-  Vstart: {x: 0, y: 0, z: 0}
-  Vfinish: {x: 0, y: 0, z: 0}
 --- !u!195 &594038584
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2843,7 +2838,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -5973893258029646923, guid: 5c89213d38ad5654e87aa82522f60bfa, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2881,7 +2876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594038582}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 216, y: 21.996, z: -130}
+  m_LocalPosition: {x: 216, y: 21.996, z: -133.791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1971898442}
